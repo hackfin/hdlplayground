@@ -5,7 +5,7 @@ RUN sudo apt-get update; sudo apt-get install -y \
 	tcl-dev libffi-dev libboost-python-dev libreadline-dev \
   libboost-filesystem-dev
 
-COPY scripts/recipes/ghdlplugin.mk /home/pyosys
+COPY . /home/pyosys/work
 
-RUN sudo chown pyosys ghdlplugin.mk; make -f ghdlplugin.mk all
+RUN sudo chown -R pyosys work; make -f work/scripts/recipes/ghdlplugin.mk all
 
