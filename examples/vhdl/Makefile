@@ -19,10 +19,10 @@ blinky2: work-obj93.cf
 	ghdl -m blinky2
 
 test.vcd: blinky
-	./blinky --vcd=test.vcd # Run the simulation and output a wave file
+	./blinky --vcd=test.vcd --stop-time=40us # Run the simulation and output a wave file
 
 test2.vcd: blinky2
-	./blinky2 --vcd=test2.vcd
+	./blinky2 --vcd=test2.vcd --stop-time=40us
 
 all: $(DUTIES) test.vcd test2.vcd
 

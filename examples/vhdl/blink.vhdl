@@ -33,7 +33,7 @@ uut:
 				sigterm <= '1';
 			end if;
 			if en0 = '1' and en1 = '1' then
-				counter <= counter + 1;
+				counter <= counter + 2;
 			end if;
 		end if;
 	end process;
