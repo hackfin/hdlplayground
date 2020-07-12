@@ -9,11 +9,10 @@ def generate(directory, files):
     txt, path = directory
     pre = os.getenv('JUPYTERHUB_SERVICE_PREFIX')
 
-    s = "  * %s: [%s](%s/tree/work/%s)\n" % (txt, path, pre, path)
-
-
     if not pre:
         pre = ""
+
+    s = "  * %s: [%s](%s/tree/work/%s)\n" % (txt, path, pre, path)
 
     for txt, fn in files:
         s += '\n  * %s: <a href="%s/edit/work/%s" target="_blank">%s</a>' % (txt, pre, fn, fn)
