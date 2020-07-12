@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devdesc version="0.1"
+         xsi:schemaLocation="http://www.section5.ch/dclib/schema/devdesc devdesc.xsd"
+         xmlns="http://www.section5.ch/dclib/schema/devdesc"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:xs="http://www.w3.org/2001/XMLSchema"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:ns22="http://www.w3.org/1999/xhtml"
+         xmlns:ns2="http://www.xmlmind.com/xmleditor/schema/bugreport"
+         xmlns:ns="http://www.section5.ch/dclib/schema/devdesc"
+         xmlns:memmap="http://www.section5.ch/dclib/schema/memmap"
+         xmlns:interfaces="http://www.section5.ch/dclib/schema/interfaces"
+         xmlns:html="http://www.xmlmind.com/xmleditor/schema/xhtml"
+         xmlns:hfp="http://www.w3.org/2001/XMLSchema-hasFacetAndProperty">
+  <vendor>&lt;your vendor name&gt;</vendor>
+
+  <!--// (c) <year> <your name>
+// $Id: $
+-->
+
+  <revision>
+    <major>0</major>
+
+    <minor>0</minor>
+
+    <extension>develop</extension>
+  </revision>
+
+  <!--This is a header file specification. Statements in this field will be included
+in handler skeleton code and in the generated property list.
+Including a header is necessary when implementing access to global variables.-->
+
+  <header>// #include &lt;stdlib.h&gt;</header>
+
+  <!--This is the list of possible codes the device may return:-->
+
+  <returncodes>
+    <errorspec code="-1024" name="GENERIC_ERROR">
+      <info>Generic, unspecified error code</info>
+    </errorspec>
+
+    <warnspec code="1" name="GENERIC_WARNING">
+      <info>Something is not ok, but we don't fail.</info>
+    </warnspec>
+  </returncodes>
+
+  <device id="template" name="Example" protocol="PROPERTY">
+    <revision>
+      <major>0</major>
+
+      <minor>0</minor>
+    </revision>
+
+    <!-- A very sparse register map -->
+
+    <registermap addrsize="8" endian="LITTLE" id="legend" name="legend"
+                 offset="0x0000">
+      <register access="WO" addr="0x00" id="WriteOnlyRegister" size="1">
+        <bitfield lsb="7" msb="7" name="RESET"></bitfield>
+
+        <bitfield lsb="0" msb="3" name="MODE"></bitfield>
+      </register>
+
+      <register access="WO" addr="0x10" id="WriteOnlyRegister_WithDefault"
+                size="1">
+        <bitfield lsb="7" msb="7" name="RESET"></bitfield>
+
+        <bitfield lsb="0" msb="3" name="MODE"></bitfield>
+
+        <default>0XXX0100</default>
+      </register>
+
+      <register access="RW" addr="0x01" id="ReadWriteRegister" size="1">
+        <bitfield lsb="7" msb="7" name="RESET"></bitfield>
+
+        <bitfield lsb="0" msb="3" name="MODE"></bitfield>
+
+        <default>0xxx0010</default>
+      </register>
+
+      <register access="RO" addr="0x02" id="ReadOnlyRegister">
+        <bitfield lsb="2" msb="2" name="ERROR"></bitfield>
+
+        <bitfield lsb="3" msb="4" name="CUR_STATUS"></bitfield>
+
+        <bitfield lsb="0" msb="0" name="SERROR"></bitfield>
+
+        <default>---0000S</default>
+      </register>
+
+      <register access="RW" addr="0x03" id="MixedAccessRegister">
+        <bitfield access="WO" lsb="6" msb="6" name="IORESET"></bitfield>
+
+        <bitfield access="RO" lsb="0" msb="0" name="CORE_ERR"></bitfield>
+      </register>
+    </registermap>
+  </device>
+</devdesc>

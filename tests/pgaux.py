@@ -3,6 +3,8 @@ from IPython.display import Markdown
 from IPython.display import HTML
 import random
 
+random.seed(2020)
+
 def generate(directory, files):
     txt, path = directory
     pre = os.getenv('JUPYTERHUB_SERVICE_PREFIX')
