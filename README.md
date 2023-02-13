@@ -2,9 +2,7 @@
 
 Document, build and simulate hardware designs (MyHDL, VHDL, Verilog)
 
-Quick start:
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hackfin/hdlplayground/master?urlpath=%2Ftree%2Fwork%2Findex.ipynb)
+**This repository is no longer maintained. Don't use for new designs**
 
 To run locally, you'll have to check out the code and build the docker container in Linux as follows:
 
